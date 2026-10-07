@@ -1,5 +1,843 @@
-</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>For My Best Friend ❤️</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Georgia, serif;
+    background: #080816;
+    color: white;
+    overflow-x: hidden;
+}
+
+.screen {
+    min-height: 100vh;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 25px;
+}
+
+.screen.active {
+    display: flex;
+}
+
+/* ---------- OPENING ---------- */
+
+#opening {
+    flex-direction: column;
+    background: radial-gradient(circle, #272044, #080816);
+}
+
+.open-btn {
+    padding: 18px 35px;
+    border: none;
+    border-radius: 50px;
+    font-size: 20px;
+    background: #ff8fb3;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 0 25px #ff8fb3;
+}
+
+/* ---------- FLASH ---------- */
+
+#flash {
+    position: fixed;
+    inset: 0;
+    background: white;
+    z-index: 100;
+    display: none;
+}
+
+.flash-animation {
+    animation: flash 1.2s forwards;
+}
+
+@keyframes flash {
+    0% { opacity: 1; }
+    20% { opacity: 0; }
+    40% { opacity: 1; }
+    60% { opacity: 0; }
+    100% { opacity: 0; }
+}
+
+/* ---------- VIDEO ---------- */
+
+video {
+    max-width: 95%;
+    max-height: 70vh;
+    border-radius: 18px;
+    box-shadow: 0 0 30px rgba(255,255,255,.25);
+}
+
+/* ---------- WISH ---------- */
+
+#wish {
+    flex-direction: column;
+    background: linear-gradient(135deg, #21142e, #47223e);
+}
+
+.wish-text {
+    max-width: 700px;
+    font-size: 20px;
+    line-height: 1.8;
+}
+
+.next-arrow {
+    margin-top: 30px;
+    font-size: 45px;
+    cursor: pointer;
+    animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+    50% { transform: translateX(12px); }
+}
+
+/* ---------- FLOWERS ---------- */
+
+#flowers {
+    flex-direction: column;
+    overflow: hidden;
+    background: linear-gradient(#10142d, #342342);
+}
+
+.flower {
+    font-size: 100px;
+    transform: scale(0);
+    animation: bloom 3s forwards;
+}
+
+@keyframes bloom {
+    0% {
+        transform: scale(0) rotate(-20deg);
+    }
+    60% {
+        transform: scale(1.2) rotate(10deg);
+    }
+    100% {
+        transform: scale(1) rotate(0);
+    }
+}
+
+.petal {
+    position: absolute;
+    top: -50px;
+    font-size: 25px;
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(110vh) rotate(360deg);
+    }
+}
+
+.thank-you {
+    margin-top: 30px;
+    font-size: 24px;
+}
+
+/* ---------- BUTTON ---------- */
+
+.main-btn {
+    margin-top: 30px;
+    padding: 14px 30px;
+    border: none;
+    border-radius: 30px;
+    background: #ff8fb3;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+/* ---------- MOON ---------- */
+
+#moon {
+    flex-direction: column;
+    background: radial-gradient(circle at center, #202044, #050509);
+}
+
+.moon {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: #eee;
+    box-shadow: 0 0 40px #fff;
+    margin: 25px;
+}
+
+.info {
+    max-width: 600px;
+    line-height: 1.7;
+    font-size: 18px;
+}
+
+/* ---------- MEMORIES ---------- */
+
+#memories {
+    flex-direction: column;
+    background: #171321;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    width: 100%;
+    max-width: 600px;
+}
+
+.gallery img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+/* ---------- FINAL ---------- */
+
+#final {
+    flex-direction: column;
+    background: linear-gradient(135deg, #120c20, #35162c);
+}
+
+.final-title {
+    font-size: 32px;
+    margin-bottom: 25px;
+}
+
+video {
+    background: black;
+}
+</style>
+</head>
+
 <body>
-  <h1>And...Here  comes the special day</h1>
-  <h2> title='Happiest birthday "Arohi" 🤖'</h2>
-  <p>I hope that Your day fills with happiness dear 🫂🧿</p>
+
+<!-- FLASH EFFECT -->
+<div id="flash"></div>
+
+
+<!-- 1. OPENING -->
+<section id="opening" class="screen active">
+
+    <h1>Something special is waiting for you... 👀</h1>
+
+    <button class="open-btn" onclick="startWebsite()">
+        Tap to open 💌
+    </button>
+
+</section>
+
+
+<!-- 2. HER VIDEO -->
+<section id="introVideo" class="screen">
+
+    <!-- CHANGE intro.mp4 TO YOUR VIDEO FILE NAME -->
+    <video controls autoplay playsinline>
+        <source src="intro.mp4" type="video/mp4">
+    </video>
+
+</section>
+
+
+<!-- 3. WISH -->
+<section id="wish" class="screen">
+
+    <h1>Happy Birthdayyy 🥹❤️</h1>
+
+    <p class="wish-text">
+
+        <!-- WRITE YOUR OWN PARAGRAPH HERE -->
+
+        Put your birthday paragraph here.
+        Write literally whatever you want her to read.
+
+    </p>
+
+    <div class="next-arrow" onclick="showScreen('flowers')">
+        ➡️
+    </div>
+
+</section>
+
+
+<!-- 4. FLOWERS -->
+<section id="flowers" class="screen">
+
+    <!-- CHANGE 🌸 TO HER ACTUAL FAVOURITE FLOWER -->
+    <div class="flower">🌸</div>
+
+    <div class="thank-you">
+        thank you for everything 🥹❤️‍🩹🫶
+    </div>
+
+    <button class="main-btn" onclick="showScreen('moon')">
+        Tap here ✨
+    </button>
+
+</section>
+
+
+<!-- 5. MOON / BIRTHDAY -->
+<section id="moon" class="screen">
+
+    <div class="moon"></div>
+
+    <h1>Written in the stars 🌙</h1>
+
+    <div class="info">
+
+        <p>
+            Born on: <b>9 / 10 / 11</b>
+        </p>
+
+        <p>
+            Moon phase: ✨
+        </p>
+
+        <p>
+            Your birthday had its own little piece of the sky. 🌌
+        </p>
+
+        <!-- WE CAN REPLACE THIS WITH THE REAL MOON PHASE LATER -->
+
+    </div>
+
+    <button class="main-btn" onclick="showScreen('memories')">
+        See next →
+    </button>
+
+</section>
+
+
+<!-- 6. PHOTOS + EDITS -->
+<section id="memories" class="screen">
+
+    <h1>Our memories 📸❤️</h1>
+
+    <div class="gallery">
+
+        <!-- CHANGE THESE FILE NAMES TO YOUR PHOTOS -->
+
+        <img src="photo1.jpg">
+        <img src="photo2.jpg">
+        <img src="photo3.jpg">
+        <img src="photo4.jpg">
+        <img src="photo5.jpg">
+        <img src="photo6.jpg">
+
+    </div>
+
+    <button class="main-btn" onclick="showScreen('final')">
+        Tap here 🥹
+    </button>
+
+</section>
+
+
+<!-- 7. FINAL VIDEO -->
+<section id="final" class="screen">
+
+    <div class="final-title">
+        you da best ❤️‍🩹🤌
+    </div>
+
+    <!-- CHANGE final.mp4 TO YOUR FINAL VIDEO -->
+    <video controls playsinline>
+        <source src="final.mp4" type="video/mp4">
+    </video>
+
+</section>
+
+
+<script>
+
+function showScreen(id) {
+
+    document.querySelectorAll(".screen").forEach(screen => {
+        screen.classList.remove("active");
+    });
+
+    document.getElementById(id).classList.add("active");
+
+}
+
+
+/* OPEN BUTTON */
+
+function startWebsite() {
+
+    const flash = document.getElementById("flash");
+
+    flash.style.display = "block";
+    flash.classList.add("flash-animation");
+
+    setTimeout(() => {
+
+        flash.style.display = "none";
+        flash.classList.remove("flash-animation");
+
+        showScreen("introVideo");
+
+    }, 1200);
+
+}
+
+
+/* FLOWER PETALS */
+
+const flowers = document.getElementById("flowers");
+
+for (let i = 0; i < 20; i++) {
+
+    const petal = document.createElement("div");
+
+    petal.className = "petal";
+    petal.innerHTML = "🌸";
+
+    petal.style.left = Math.random() * 100 + "%";
+    petal.style.animationDuration = (3 + Math.random() * 5) + "s";
+    petal.style.animationDelay = Math.random() * 5 + "s";
+
+    flowers.appendChild(petal);
+
+}
+
+</script>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>For My Best Friend ❤️</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Georgia, serif;
+    background: #080816;
+    color: white;
+    overflow-x: hidden;
+}
+
+.screen {
+    min-height: 100vh;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 25px;
+}
+
+.screen.active {
+    display: flex;
+}
+
+/* ---------- OPENING ---------- */
+
+#opening {
+    flex-direction: column;
+    background: radial-gradient(circle, #272044, #080816);
+}
+
+.open-btn {
+    padding: 18px 35px;
+    border: none;
+    border-radius: 50px;
+    font-size: 20px;
+    background: #ff8fb3;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 0 25px #ff8fb3;
+}
+
+/* ---------- FLASH ---------- */
+
+#flash {
+    position: fixed;
+    inset: 0;
+    background: white;
+    z-index: 100;
+    display: none;
+}
+
+.flash-animation {
+    animation: flash 1.2s forwards;
+}
+
+@keyframes flash {
+    0% { opacity: 1; }
+    20% { opacity: 0; }
+    40% { opacity: 1; }
+    60% { opacity: 0; }
+    100% { opacity: 0; }
+}
+
+/* ---------- VIDEO ---------- */
+
+video {
+    max-width: 95%;
+    max-height: 70vh;
+    border-radius: 18px;
+    box-shadow: 0 0 30px rgba(255,255,255,.25);
+}
+
+/* ---------- WISH ---------- */
+
+#wish {
+    flex-direction: column;
+    background: linear-gradient(135deg, #21142e, #47223e);
+}
+
+.wish-text {
+    max-width: 700px;
+    font-size: 20px;
+    line-height: 1.8;
+}
+
+.next-arrow {
+    margin-top: 30px;
+    font-size: 45px;
+    cursor: pointer;
+    animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+    50% { transform: translateX(12px); }
+}
+
+/* ---------- FLOWERS ---------- */
+
+#flowers {
+    flex-direction: column;
+    overflow: hidden;
+    background: linear-gradient(#10142d, #342342);
+}
+
+.flower {
+    font-size: 100px;
+    transform: scale(0);
+    animation: bloom 3s forwards;
+}
+
+@keyframes bloom {
+    0% {
+        transform: scale(0) rotate(-20deg);
+    }
+    60% {
+        transform: scale(1.2) rotate(10deg);
+    }
+    100% {
+        transform: scale(1) rotate(0);
+    }
+}
+
+.petal {
+    position: absolute;
+    top: -50px;
+    font-size: 25px;
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(110vh) rotate(360deg);
+    }
+}
+
+.thank-you {
+    margin-top: 30px;
+    font-size: 24px;
+}
+
+/* ---------- BUTTON ---------- */
+
+.main-btn {
+    margin-top: 30px;
+    padding: 14px 30px;
+    border: none;
+    border-radius: 30px;
+    background: #ff8fb3;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+/* ---------- MOON ---------- */
+
+#moon {
+    flex-direction: column;
+    background: radial-gradient(circle at center, #202044, #050509);
+}
+
+.moon {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: #eee;
+    box-shadow: 0 0 40px #fff;
+    margin: 25px;
+}
+
+.info {
+    max-width: 600px;
+    line-height: 1.7;
+    font-size: 18px;
+}
+
+/* ---------- MEMORIES ---------- */
+
+#memories {
+    flex-direction: column;
+    background: #171321;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    width: 100%;
+    max-width: 600px;
+}
+
+.gallery img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+/* ---------- FINAL ---------- */
+
+#final {
+    flex-direction: column;
+    background: linear-gradient(135deg, #120c20, #35162c);
+}
+
+.final-title {
+    font-size: 32px;
+    margin-bottom: 25px;
+}
+
+video {
+    background: black;
+}
+</style>
+</head>
+
+<body>
+
+<!-- FLASH EFFECT -->
+<div id="flash"></div>
+
+
+<!-- 1. OPENING -->
+<section id="opening" class="screen active">
+
+    <h1>Something special is waiting for you... 👀</h1>
+
+    <button class="open-btn" onclick="startWebsite()">
+        Tap to open 💌
+    </button>
+
+</section>
+
+
+<!-- 2. HER VIDEO -->
+<section id="introVideo" class="screen">
+
+    <!-- CHANGE intro.mp4 TO YOUR VIDEO FILE NAME -->
+    <video controls autoplay playsinline>
+        <source src="intro.mp4" type="video/mp4">
+    </video>
+
+</section>
+
+
+<!-- 3. WISH -->
+<section id="wish" class="screen">
+
+    <h1>Happy Birthdayyy 🥹❤️</h1>
+
+    <p class="wish-text">
+
+        <!-- WRITE YOUR OWN PARAGRAPH HERE -->
+
+        Put your birthday paragraph here.
+        Write literally whatever you want her to read.
+
+    </p>
+
+    <div class="next-arrow" onclick="showScreen('flowers')">
+        ➡️
+    </div>
+
+</section>
+
+
+<!-- 4. FLOWERS -->
+<section id="flowers" class="screen">
+
+    <!-- CHANGE 🌸 TO HER ACTUAL FAVOURITE FLOWER -->
+    <div class="flower">🌸</div>
+
+    <div class="thank-you">
+        thank you for everything 🥹❤️‍🩹🫶
+    </div>
+
+    <button class="main-btn" onclick="showScreen('moon')">
+        Tap here ✨
+    </button>
+
+</section>
+
+
+<!-- 5. MOON / BIRTHDAY -->
+<section id="moon" class="screen">
+
+    <div class="moon"></div>
+
+    <h1>Written in the stars 🌙</h1>
+
+    <div class="info">
+
+        <p>
+            Born on: <b>9 / 10 / 11</b>
+        </p>
+
+        <p>
+            Moon phase: ✨
+        </p>
+
+        <p>
+            Your birthday had its own little piece of the sky. 🌌
+        </p>
+
+        <!-- WE CAN REPLACE THIS WITH THE REAL MOON PHASE LATER -->
+
+    </div>
+
+    <button class="main-btn" onclick="showScreen('memories')">
+        See next →
+    </button>
+
+</section>
+
+
+<!-- 6. PHOTOS + EDITS -->
+<section id="memories" class="screen">
+
+    <h1>Our memories 📸❤️</h1>
+
+    <div class="gallery">
+
+        <!-- CHANGE THESE FILE NAMES TO YOUR PHOTOS -->
+
+        <img src="photo1.jpg">
+        <img src="photo2.jpg">
+        <img src="photo3.jpg">
+        <img src="photo4.jpg">
+        <img src="photo5.jpg">
+        <img src="photo6.jpg">
+
+    </div>
+
+    <button class="main-btn" onclick="showScreen('final')">
+        Tap here 🥹
+    </button>
+
+</section>
+
+
+<!-- 7. FINAL VIDEO -->
+<section id="final" class="screen">
+
+    <div class="final-title">
+        you da best ❤️‍🩹🤌
+    </div>
+
+    <!-- CHANGE final.mp4 TO YOUR FINAL VIDEO -->
+    <video controls playsinline>
+        <source src="final.mp4" type="video/mp4">
+    </video>
+
+</section>
+
+
+<script>
+
+function showScreen(id) {
+
+    document.querySelectorAll(".screen").forEach(screen => {
+        screen.classList.remove("active");
+    });
+
+    document.getElementById(id).classList.add("active");
+
+}
+
+
+/* OPEN BUTTON */
+
+function startWebsite() {
+
+    const flash = document.getElementById("flash");
+
+    flash.style.display = "block";
+    flash.classList.add("flash-animation");
+
+    setTimeout(() => {
+
+        flash.style.display = "none";
+        flash.classList.remove("flash-animation");
+
+        showScreen("introVideo");
+
+    }, 1200);
+
+}
+
+
+/* FLOWER PETALS */
+
+const flowers = document.getElementById("flowers");
+
+for (let i = 0; i < 20; i++) {
+
+    const petal = document.createElement("div");
+
+    petal.className = "petal";
+    petal.innerHTML = "🌸";
+
+    petal.style.left = Math.random() * 100 + "%";
+    petal.style.animationDuration = (3 + Math.random() * 5) + "s";
+    petal.style.animationDelay = Math.random() * 5 + "s";
+
+    flowers.appendChild(petal);
+
+}
+
+</script>
+
+</body>
+</html>
